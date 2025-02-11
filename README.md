@@ -2,7 +2,7 @@
 
 ## Decisions
 
-This exercise is modeled as an API that would be used by the real state agent to:
+This exercise is modeled as an API that would be used by the real estate agent to:
 
 -   Check his own availability at a certain date and time for a call or a showing
 -   Find different date time options to share with a client when arranging a meeting or call
