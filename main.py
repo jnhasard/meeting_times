@@ -39,45 +39,10 @@ while len(endpoint):
 		elif endpoint.startswith("busy"):
 			agent_id = int(endpoint.split("/")[1])
 			date = datetime.strptime(input("-date ") + " 08:00", "%m/%d/%Y %H:%M").astimezone()
-			busy_day(calendars[agent_id - 1], date)
+			print(busy_day(calendars[agent_id - 1], date))
 		else:
 			raise Exception
 		endpoint = input("-->\t").strip("/")
 	except Exception as err:
 		print("400 Bad Request\n", err)
 		endpoint = input("-->\t").strip("/")
-
-
-"""
-Examples:
-
-/new_calendar
-data/jhasardr@gmail.com.ics
-/check_availability/1
-2/10/2025 20:00
-2/10/2025 10:00
-2/10/2025 12:00
-2/10/2025 09:00
-
-/query_functionality/1
-2/10/2025 09:00
-2/12/2025 20:00
-60
-5
-
-/new_calendar
-data/jhasardr@gmail.com.ics
-/busy_day/1
-2/11/2025
-2/10/2025
-
-
-/new_calendar
-data/jhasardr@gmail.com.ics
-/query_functionality/2
-2/10/2025 09:00
-2/12/2025 20:00
-15
-5
-
-"""
