@@ -5,7 +5,7 @@
 This exercise is modeled as an API that would be used by the real state agent to:
 
 -   Check his own availability at a certain date and time for a call or a showing
--   Find different date time options to share with a client when arranging a meet or call
+-   Find different date time options to share with a client when arranging a meeting or call
 -   Check if there’s enough time on a given day to fit more work
 
 Given these use cases I decided to split time in 15 minute blocks:
@@ -29,6 +29,8 @@ Testing data:
     -   One day with intervals and at least one longer than 1:30 to show `check_availability` , `query_functionaility` on a day with time between meetings and `busy_day` when its not busy
     -   a day blocked from 8am to 8pm to show `busy_day` when there its actually busy
     -   day with one meeting for multiple day `query_functionaility` requests
+
+![alt text](./imgs/calendar.png "Calendar")
 
 ## Capabilities
 
