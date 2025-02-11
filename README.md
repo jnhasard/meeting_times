@@ -58,7 +58,7 @@ Testing data:
 
     The API returns that they have free time in their calendar **from 8:00-10:00** to give that option to the client for him to decide one hour in that given timeframe.
 
-    I also restricted working hours from 8am to 8pm, I know real state agents may have showings on weekends or after a regular 9-5, at the end their customers are most probably working on those hours on weekdays.
+    I also restricted working hours from 8am to 8pm, I know real estate agents may have showings on weekends or after a regular 9-5, at the end their customers are most probably working on those hours on weekdays.
 
 3. Identify if a specified day is not busy for an agent:
 
