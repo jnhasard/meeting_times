@@ -8,16 +8,16 @@ This exercise is modeled as an API that would be used by the real state agent to
 -   Find different date time options to share with a client when arranging a meeting or call
 -   Check if there’s enough time on a given day to fit more work
 
-Given these use cases I decided to split time in 15 minute blocks:
+Given these use cases I decided to split time in 15 minutes blocks:
 
--   While this not enough for a showing it could be for a call
+-   While 15 minutes are not enough for a showing, it could be for a call
 -   Blocks shorter than this could end on a crowded calendar impossible to accomplish
 -   Reduces the amount of data making calls and processes more efficient and light weight
 
 For data storage:
 
--   For simplification as requested the .ics files are stored in the repo at a /data folder
--   I added a POST request to load files into the API for a given path, usable with files outside the repo as well
+-   For simplification the .ics files are stored in the repo at a /data folder
+-   I added a `POST` request to load files into the API for a given path, usable with files outside the repo as well
 -   After this endpoint is hit with a valid path the calendar is parsed into a python dictionary stored on an array with other agents calendars
 -   To access these the agent_id is the position in the array (minus 1 since its 0-indexed and ids aren’t)
 
@@ -35,8 +35,8 @@ Testing data:
 ## Capabilities
 
 1. Check Availability:
-    - Its possible to check for any time input, doesn’t have to be in multiples of 15 minutes, the response based on the block where that `datetime` falls into
-    - If it is on a block that is Free but the one after isn’t, it will return True but with a warning that you’ll have 15 or less minutes at that moment (maybe an alarm not to forget to deliver a quick message to a client could fit there, but not much more)
+    - It's possible to check for any time input, doesn’t have to be in multiples of 15 minutes. The response is based on the block where that `datetime` falls into (example 10:32 falls into the 10:30-10:45 block)
+    - If it is on a block that is free but the one after isn’t, it will return True but with a warning that you’ll have 15 or less minutes at that moment (maybe an alarm not to forget to deliver a quick message to a client could fit there, but not much more)
 2. Query Functionality:
 
     Thinking about this I concluded that the most probable use case would be asking the API for _n_ options to give to a client for a certain duration.
@@ -56,9 +56,9 @@ Testing data:
     - 8:00-9:00
     - 9:00-10:00
 
-    I give them that he has free time in his calendar **from 8:00-10:00** to give that option to the client for him to decide one hour in that given timeframe
+    The API returns that they have free time in their calendar **from 8:00-10:00** to give that option to the client for him to decide one hour in that given timeframe.
 
-    Also restricted working hours from 8am to 8pm, I know real state agents may have showings on weekends or after a regular 9-5, at the end their customers are most probably working on those hours on weekdays.
+    I also restricted working hours from 8am to 8pm, I know real state agents may have showings on weekends or after a regular 9-5, at the end their customers are most probably working on those hours on weekdays.
 
 3. Identify if a specified day is not busy for an agent:
 
@@ -66,7 +66,7 @@ Testing data:
 
     I decided that if there was at least one 1:30 block of free time on a day from 8 am to 8 pm, that meant that they could take some more work load on that day to arrange a meeting or call.
 
-    The function returns the first 1:30 block found in that day if there is one, if not it returns `None`
+    The function returns the first 1:30 block found in that day if there is one, if not it returns `None`.
 
 ## Possible improvements
 
@@ -78,5 +78,6 @@ Testing data:
 ## How to run it
 
 Clone repo and run in terminal with `python3 main.py`
+
 Example run
 ![alt text](./imgs/sample.png "Sample")
